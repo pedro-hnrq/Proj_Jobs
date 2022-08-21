@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.messages import constants
 from django.contrib import auth
 
+
 def cadastro(request):
     if request.method == 'GET':
         if request.user.is_authenticated:
@@ -27,7 +28,7 @@ def cadastro(request):
         user = User.objects.filter(username = username)
         
         if user.exists():
-            messages.add_message(request, constants.ERROR, 'Já existe um usário com esse username')
+            messages.add_message(request, constants.WARNING, 'Já existe um usário com esse username')
             return redirect ('/auth/cadastro')
 
         try:

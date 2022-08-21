@@ -8,5 +8,5 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url= '/auth/logar')
 def home(request):
-        messages.add_message(request, constants.SUCCESS, 'Seja Bem-Vindo')
+        messages.add_message(request, constants.DEBUG, 'Seja Bem-Vindo')
         return render(request, 'plataforma.html')

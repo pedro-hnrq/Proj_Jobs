@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.messages import constants
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages, auth
 
 @login_required(login_url='/auth/logar')
 def encontrar_jobs(request):
@@ -55,6 +56,7 @@ def aceitar_job(request, id):
     job.profissional = request.user
     job.reservado = True
     job.save()
+
     return redirect('/jobs/encontrar_jobs')
 
 @login_required(login_url='/auth/logar')
@@ -105,4 +107,6 @@ def enviar_projeto(request):
     job.arquivo_final = arquivo
     job.status = 'AA'
     job.save()
+    messages.add_message(request, constants.INFO, 'Erro interno do sistema')
     return redirect('/jobs/perfil')
+

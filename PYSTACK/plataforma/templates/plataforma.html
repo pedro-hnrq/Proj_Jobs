@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
-{% block 'conteudo' %}
+{% block 'body' %}
 
 
-    {% if messages %}
-        {% for i in messages %}
+
+            {% if message in messages  %}
+
+                <div class="alert {{message.tags}}" align="center">
+                    {{message}}
+                </div>
+
+            {% endif %}
 
 
-        {% endfor %}
-    {% endif %}
 
 {% endblock %}
