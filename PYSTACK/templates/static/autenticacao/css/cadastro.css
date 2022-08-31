@@ -2,6 +2,16 @@
     background-color: #222;
     color: white;
 }
+.esq{
+
+    margin: auto;
+    width: 40%;
+
+
+    padding: 10px;
+
+}
+
 .box{
     background-color: #444;
     width: 500px;
